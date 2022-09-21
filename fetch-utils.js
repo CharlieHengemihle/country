@@ -11,17 +11,17 @@ export async function getCountries(name, continent) {
     let query =  client.from('countries').select('*', {count: 'exact'}).order('name').limit(100);// ?
 
     if (name) {
-        // > Part C: add query for name
+        query = query.ilike('name', `%${name}%`);
     }
     
     if (continent) {
-        // > Part C: add query for continent
+        query = query.eq('continent', continent);
     }
 const response = await query;
 return response;
 }
 
 export async function getContinents() {
-    const response = await query;
+    const response = await client.from('country_continents').select();
     return response;
 }

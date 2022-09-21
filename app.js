@@ -33,7 +33,6 @@ async function findCountries(name, continent) {
     const response = await getCountries();
     // > Part C: Add the name and continent arguments to getCountries
 
-:
     error = response.error;
 
     countries = response.data;
@@ -79,7 +78,7 @@ function displayNotifications() {
 
 function displayContinentOptions() {
     for (const continent of continents) {
-        const continentEl = renderContinent(continentEl);
-        continentList.append(continent);
+        const continentEl = renderContinentOption(continent);
+        continentSelect.append(continentEl);
     }
 }
