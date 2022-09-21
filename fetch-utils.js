@@ -11,7 +11,7 @@ export async function getCountries(name, continent) {
     //   1. select all columns
     //   2. order by country name
     //   3. limit to 100 countries
-    let query = // ?
+    let query =  client.from('countries').select('*', {count: 'exact'}).order('name').limit(100);// ?
 
     if (name) {
         // > Part C: add query for name
@@ -20,7 +20,8 @@ export async function getCountries(name, continent) {
     if (continent) {
         // > Part C: add query for continent
     }
-
+const response = await query;
+return response;
     // > Part A: `await` the query and return the response
 }
 
