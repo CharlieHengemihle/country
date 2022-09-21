@@ -81,6 +81,7 @@ function displayNotifications() {
 
 function displayContinentOptions() {
     for (const continent of continents) {
-        // > Part B: render and append options to select
+        const continentEl = renderContinent(continentEl);
+        continentList.append(continent);
     }
 }
