@@ -1,6 +1,4 @@
 /* Imports */
-// > Part A: Import `getCountries` from fetch-utils.js
-// > Part B: Import `getContinents` from fetch-utils.js
 import { renderContinentOption, renderCountry } from './render-utils.js';
 import {getCountries, getContinents } from './fetch-utils.js';
 /* Get DOM Elements */

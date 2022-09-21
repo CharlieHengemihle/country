@@ -7,10 +7,7 @@ export async function getCountries(name, continent) {
     // > Part D: Add a second argument to `select(` to 
     // return an exact db count of matching records
 
-    // > Part A: Implement the client query from countries:
-    //   1. select all columns
-    //   2. order by country name
-    //   3. limit to 100 countries
+
     let query =  client.from('countries').select('*', {count: 'exact'}).order('name').limit(100);// ?
 
     if (name) {
@@ -22,10 +19,9 @@ export async function getCountries(name, continent) {
     }
 const response = await query;
 return response;
-    // > Part A: `await` the query and return the response
 }
 
 export async function getContinents() {
-    // > Part B: await client query from country_continents
-    // (select all columns) and return response
+    const response = await query;
+    return response;
 }
