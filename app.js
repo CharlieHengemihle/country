@@ -30,11 +30,11 @@ window.addEventListener('load', async () => {
 
 async function findCountries(name, continent) {
 
-    const response = await getCountries();
-    // > Part C: Add the name and continent arguments to getCountries
+    const response = await getCountries(name, continent);
+
 
     error = response.error;
-
+    count = response.count;
     countries = response.data;
 
 
@@ -50,7 +50,7 @@ async function findCountries(name, continent) {
 searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const formData = new FormData(searchForm);
-    // > Part C: Call findCountries with name and continent from formData
+    findCountries(formData.get('name'), formData.get('continent'));
 });
 
 /* Display Functions */
@@ -70,6 +70,7 @@ function displayNotifications() {
         notificationDisplay.textContent = error.message;
     } else {
         notificationDisplay.classList.remove('error');
+        notificationDisplay.textContent = `Displaying ${countries.length} of ${count} results`;
         // > Part D: Display a message with
         //      - how many items were returned in countries array
         //      - how many total matching countries were in the db
