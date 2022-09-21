@@ -1,6 +1,6 @@
 /* Imports */
 import { renderContinentOption, renderCountry } from './render-utils.js';
-import {getCountries, getContinents } from './fetch-utils.js';
+import { getCountries, getContinents } from './fetch-utils.js';
 /* Get DOM Elements */
 const notificationDisplay = document.getElementById('notification-display');
 const searchForm = document.getElementById('search-form');
@@ -20,7 +20,7 @@ window.addEventListener('load', async () => {
     const response = await getContinents();
 
     error = response.error;
-    continents = response.data
+    continents = response.data;
 
 
     if (!error) {

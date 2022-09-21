@@ -4,12 +4,12 @@ const SUPABASE_KEY =
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 export async function getCountries(name, continent) {
-    
+
     // > Part D: Add a second argument to `select(` to 
     // return an exact db count of matching records
 
 
-    let query =  client.from('countries').select('*', {count: 'exact'}).order('name').limit(100);// ?
+    let query = client.from('countries').select('*', { count: 'exact' }).order('name').limit(100);// ?
 
     if (name) {
         query = query.ilike('name', `%${name}%`);
@@ -18,8 +18,8 @@ export async function getCountries(name, continent) {
     if (continent) {
         query = query.eq('continent', continent);
     }
-const response = await query;
-return response;
+    const response = await query;
+    return response;
 }
 
 export async function getContinents() {
